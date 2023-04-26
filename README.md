@@ -2,10 +2,10 @@
 ## EXÁMENES
 
 ### [**DIW**](https://github.com/Britza/DAW/tree/main/DIW)
-[Exámen práctico 1](https://github.com/Britza/DAW/blob/main/DIW/Examen%20practico%201%20DIW.pdf)  
+[Examen práctico 1](https://github.com/Britza/DAW/blob/main/DIW/Examen%20practico%201%20DIW.pdf)  
 
 ### **DWEC**
 ### [**DWES**](https://github.com/Britza/DAW/tree/main/DWES)
-Exámen práctico 1
+[Examen práctico 1](https://github.com/Britza/DAW/blob/main/DWES/Ex%C3%A1men%20pr%C3%A1ctico%201%20DWES.pdf)
 
 
