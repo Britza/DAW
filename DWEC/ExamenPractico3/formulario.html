@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de registro</title>
+</head>
+<body>
+<form id="formulario">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required>
+  <br>
+  <label for="apellidos">Apellidos:</label>
+  <input type="text" id="apellidos" name="apellidos">
+  <span id="apellidos-help"></span>
+  <br>
+  <label for="dni">DNI:</label>
+  <input type="text" id="dni" name="dni" required>
+  <br>
+  <label for="edad">Edad:</label>
+  <input type="number" id="edad" name="edad" min="0" max="85" required>
+  <br>
+  <label for="provincia">Provincia:</label>
+  <select id="provincia" name="provincia" required>
+    <option value="">-- Seleccione una provincia --</option>
+    <option value="A Coruña">A Corunha</option>
+    <option value="Lugo">Lugo</option>
+    <option value="Ourense">Ourense</option>
+    <option value="Pontevedra">Pontevedra</option>
+  </select>
+  <br>
+  <button type="submit" id="enviar" disabled>Enviar</button>
+</form>
+<script src="p4.js"></script>
+</body>
+</html>
