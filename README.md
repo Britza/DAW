@@ -5,6 +5,7 @@
 [Exámen práctico 1](https://github.com/Britza/DAW/blob/main/DIW/Examen%20practico%201%20DIW.pdf)  
 
 ### **DWEC**
-### **DWES**
+### [**DWES**](https://github.com/Britza/DAW/tree/main/DWES)
+Exámen práctico 1
 
 
