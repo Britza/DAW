@@ -13,7 +13,8 @@
 [Examen práctico 2](https://github.com/Britza/DAW/tree/main/DWES/ExamenPractico2)  
 [Examen práctico 3](https://github.com/Britza/DAW/tree/main/DWES/ExamenPractico3)  
 ### [**DESPREGAMENTO DE APLICACIONES WEB**](https://github.com/Britza/DAW/tree/main/Despregamento%20de%20aplicaciones%20web)  
-[Ejercicio Java 1](https://github.com/Britza/DAW/tree/main/Despregamento%20de%20aplicaciones%20web/EjerciciosJava1)  
+[Ejercicios Java 1](https://github.com/Britza/DAW/tree/main/Despregamento%20de%20aplicaciones%20web/EjerciciosJava1)    
+[Ejercicios Java 2](https://github.com/Britza/DAW/tree/main/Despregamento%20de%20aplicaciones%20web/EjerciciosJava2)  
 
 
 
