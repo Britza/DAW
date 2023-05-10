@@ -5,34 +5,133 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El cacao</title> 
+    <link rel="stylesheet" href="./CSS/normalize.css">
+    <link rel="stylesheet" href="./CSS/estilos.css">
   </head>
-  <body>
-    <h1>HOME</h1>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="subdirectorio1/pagina1.html">Historia del cacao</a></li>
-            <li><a href="subdirectorio1/pagina2.html">Producción del cacao</a></li>
-            <li><a href="subdirectorio2/pagina3.html">Beneficios del cacao</a></li>
-            <li><a href="subdirectorio2/pagina4.html">Recetas con cacao</a></li>
-        </ul>
-    </nav> 
+  <body>
+
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 class="nav__title">El Cacao</h2>
+            </div>
+
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items">
+                    <a href="index.html" class="nav__links">Home</a>
+                </li>
+                <li class="nav__items">
+                    <a href="subdirectorio1/pagina1.html" class="nav__links">Historia del cacao</a>
+                </li>
+                <li class="nav__items">
+                    <a href="subdirectorio1/pagina2.html" class="nav__links">Producción del cacao</a>
+                </li>
+                <li class="nav__items">
+                    <a href="subdirectorio2/pagina3.html" class="nav__links">Beneficios del cacao</a>
+                </li>
+                <li class="nav__items">
+                    <a href="subdirectorio2/pagina4.html" class="nav__links">Recetas del cacao</a>
+                </li>
+
+                <img src="images/menu.svg" alt="" class="nav__close">
+            </ul>
+
+            <div class="nav__menu">
+                <img src="#" alt="" class="nav__img">
+            </div>
+        </nav>
+
+            <section class="hero__container container">
+                <h1 class="hero__title">Aprende todo sobre el cacao</h1>
+                <p class="hero__paragraph">Sera una muy buena experiencia</p>
+                <a href="#" class="cta">Comienza ahora</a>
+            </section>
+       
+    </header>
 
     <main>
-        <section>
-            <h2>Sección 1</h2>
-            <p>Contenido de la sección 1.</p>
-          </section>
-          <section>
-            <h2>Sección 2</h2>
-            <p>Contenido de la sección 2.</p>
-          </section>
+        <section class="container about">
+            <h2 class="subtitle">¿Que es lo que aprenderas sobre el cacao?</h2>
+            <p class="about__paragraph">Toda su historia, su producción, los beneficios que te puede dar y además faciles y deliciosas recetas </p>
+
+            <div class="about__main">
+                <article class="about__icons">
+                    <img src="images/granoCafe.svg" class="about__icon">
+                    <h3 class="about__title">Grano de café</h3>
+                    <p class="about_paragrah">Todo sobre los granos de café</p>
+                </article>
+
+                <article class="about__icons">
+                    <img src="images/cafealternativo.svg" class="about__icon">
+                    <h3 class="about__title">Café alternativo</h3>
+                    <p class="about_paragrah">Hay otros productos que pueden sustituirse al café</p>
+                </article>
+
+                <article class="about__icons">
+                    <img src="images/cafellevar.svg" class="about__icon">
+                    <h3 class="about__title">Café para llevar</h3>
+                    <p class="about_paragrah">Los mejores lugares donde puedes pedir café para llevar</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="knowledge">
+            <div class="knowledge__container container">
+                <div class="knowledge__text">
+                    <h2 class="subtitle">Clases de cocina con cacao</h2>
+                    <p class="knowledge__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae lacus ullamcorper, maximus libero imperdiet, pharetra tellus. Nunc pulvinar est id aliquam pulvinar. Cras vel dolor scelerisque, tristique justo eget, gravida lorem.</p>
+                    <a href="#" class="cta">Mira nuestro folleto</a>
+                </div>
+
+                <figure class="knowledge__picture">
+                    <img src="images/recetacacao.jpg" class="knowledge__img">
+                </figure>
+            </div>
+        </section>
+
+        <section class="testimony">
+            <div class="testimony__container container">
+                <img src="images/leftarrow.svg" class="testimony__arrow" id="before">
+                <section class="testimony__body testimony__body--show" data-id="1">
+                    <div class="testimony__texts">
+                        <h2 class="subtitle">Nesquik, <span class="testimony__course>">100% Cacao puro natural</span></h2>
+                        <p class="testimony__review">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae lacus ullamcorper, maximus libero imperdiet, pharetra tellus. Nunc pulvinar est id aliquam pulvinar. Cras vel dolor scelerisque, tristique justo eget, gravida lorem.</p>
+                    </div>
+
+                    <figure class="testimony__picture">
+                        <img src="images/cacaonesquik.jpg" alt="" class="testimony__img">
+                    </figure>
+                </section>
+
+                <section class="testimony__body" data-id="2">
+                    <div class="testimony__texts">
+                        <h2 class="subtitle">ColaCao, <span class="testimony__course>">100% Cacao puro natural</span></h2>
+                        <p class="testimony__review">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae lacus ullamcorper, maximus libero imperdiet, pharetra tellus.</p>
+                    </div>
+
+                    <figure class="testimony__picture">
+                        <img src="images/cacaocolacao.jpg" alt="" class="testimony__img">
+                    </figure>
+                </section>
+
+                <section class="testimony__body" data-id="3">
+                    <div class="testimony__texts">
+                        <h2 class="subtitle">Chocolates Valor, <span class="testimony__course>">100% Cacao puro natural</span></h2>
+                        <p class="testimony__review">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae lacus ullamcorper, maximus libero imperdiet, pharetra tellus.</p>
+                    </div>
+
+                    <figure class="testimony__picture">
+                        <img src="images/cacaovalor.jpg" alt="" class="testimony__img">
+                    </figure>
+                </section>
+
+                <img src="images/rightarrow.svg" class="testimony__arrow" id="next">
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>Derechos reservados &copy; 2023</p>
-      </footer>
+    <script src="js/slider.js"></script>
 
   </body>
 </html>
