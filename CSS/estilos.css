@@ -303,7 +303,7 @@ body{
 .questions__show{
     text-align: left;
     height: 0;
-    transition: height .3s;
+    transition: height .3s; 
 }
 
 .questions__img{
