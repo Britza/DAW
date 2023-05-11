@@ -71,11 +71,6 @@ body{
     text-decoration: none;
 }
 
-.nav__links2{
-    color: #060606;
-    text-decoration: none;
-}
-
 .nav__menu{
     margin-left: auto;
     cursor: pointer;
@@ -383,7 +378,7 @@ body{
     font-size: 1rem;
     color: #fff;
     border-radius: 6px;
-    cursor: pointer;
+    cursor:pointer;
 }
 
 .footer__copy{

@@ -5,27 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El cacao</title> 
-    <link rel="stylesheet" href="./CSS/normalize.css">
-    <link rel="stylesheet" href="./CSS/estilos.css">
+    <link rel="shortcut icon" href="../images/favicon.svg">
+    <link rel="stylesheet" href="../CSS/normalize.css">
+    <link rel="stylesheet" href="../CSS/pagina1.css">
   </head>
   <body>
-    <h1>Historia del cacao</h1>
+    
+    <header class="hero">
+      <nav class="nav container">
+          <div class="nav__logo">
+              <h2 class="nav__title">Historia del cacao</h2>
+          </div>
 
-    <nav>
-      <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="pagina1.html">Historia del cacao</a></li>
-          <li><a href="pagina2.html">Producción del cacao</a></li>
-          <li><a href="../subdirectorio2/pagina3.html">Beneficios del cacao</a></li>
-          <li><a href="../subdirectorio2/pagina4.html">Recetas con cacao</a></li>
-      </ul>
-  </nav> 
-  
+          <ul class="nav__link nav__link--menu">
+              <li class="nav__items">
+                  <a href="../index.html" class="nav__links">Home</a>
+              </li>
+              <li class="nav__items">
+                  <a href="pagina1.html" class="nav__links">Historia</a>
+              </li>
+              <li class="nav__items">
+                  <a href="pagina2.html" class="nav__links">Producción</a>
+              </li>
+              <li class="nav__items">
+                  <a href="../subdirectorio2/pagina3.html" class="nav__links">Beneficios</a>
+              </li>
+              <li class="nav__items">
+                  <a href="../subdirectorio2/pagina4.html" class="nav__links">Recetas</a>
+              </li>
+
+              <img src="images/close.svg" alt="" class="nav__close">
+          </ul>
+
+          <div class="nav__menu">
+              <img src="images/menu.svg" alt="" class="nav__img">
+          </div>
+      </nav>
+
+      <section class="hero__container container">
+        <h1 class="hero__title">Todo sobre la historia del cacao</h1>
+    </section>
+
 </body>
 
-    <footer>
-        <p>Derechos reservados &copy; 2023</p>
-      </footer>
       
   
 </html>
