@@ -1,0 +1,16 @@
+
+{
+  "11111111A": {
+    "nombre": "Juan Pérez",
+    "email": "juan.perez@example.com"
+  },
+  "22222222B": {
+    "nombre": "María Gómez",
+    "email": "maria.gomez@example.com"
+  },
+  "33333333C": {
+    "nombre": "Pedro Rodríguez",
+    "email": "pedro.rodriguez@example.com"
+  }
+}
+
