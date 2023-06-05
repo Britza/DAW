@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google OAuth</title>
+</head>
+<body>
+<h1>Google OAuth</h1>
+
+<div id="usuario"></div>
+
+<button onclick="iniciarSesion()">Iniciar sesion con Google</button>
+<button onclick="cerrarSesion()">Cerrar sesion</button>
+<button onclick="window.location.href='https://proveedor-de-autenticacion.com/login/oauth2/authorize?response_type=code&client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&scope=SCOPE'">Iniciar sesion con proveedor de autenticacion</button>
+
+<script>
+  let usuario = null;
+
+  // Iniciar sesión
+  function iniciarSesion() {
+    const url = "https://accounts.google.com/o/oauth2/v2/auth?" +
+            "client_id=528345822736-c0khn0vsqhqfk5qrv1joi3jtv3juvfa3.apps.googleusercontent.com" +
+            "&redirect_uri=http://localhost:8000/oauth2callback" +
+            "&response_type=token" +
+            "&scope=profile email";
+
+    window.location.href = url;
+  }
+
+  // Cerrar sesión
+  function cerrarSesion() {
+    usuario = null;
+    mostrarUsuario();
+  }
+
+  // Mostrar información del usuario
+  function mostrarUsuario() {
+    const usuarioDiv = document.getElementById("usuario");
+    usuarioDiv.innerHTML = "";
+
+    if (usuario) {
+      const img = document.createElement("img");
+      img.src = usuario.picture || "https://via.placeholder.com/150";
+      img.alt = "Foto de perfil";
+      img.title = "Foto de perfil";
+      usuarioDiv.appendChild(img);
+
+      const nombre = document.createElement("p");
+      nombre.textContent = `Nombre: ${usuario.given_name}`;
+      usuarioDiv.appendChild(nombre);
+
+      const apellido = document.createElement("p");
+      apellido.textContent = `Apellido: ${usuario.family_name}`;
+      usuarioDiv.appendChild(apellido);
+    } else {
+      const mensaje = document.createElement("p");
+      mensaje.textContent = "No has iniciado sesion";
+      usuarioDiv.appendChild(mensaje);
+    }
+  }
+
+  // Obtener información del usuario
+  function obtenerUsuario(token) {
+    fetch(`https://www.googleapis.com/oauth2/v3/userinfo?access_token=${token}`)
+            .then(response => response.json())
+            .then(data => {
+              usuario = data;
+              mostrarUsuario();
+            });
+  }
+
+  // Manejar respuesta de Google
+  function manejarRespuesta() {
+    const hash = window.location.hash.substring(1);
+    const parametros = new URLSearchParams(hash);
+
+    if (parametros.has("access_token")) {
+      const token = parametros.get("access_token");
+      obtenerUsuario(token);
+    }
+  }
+
+  manejarRespuesta();
+</script>
+</body>
+</html>

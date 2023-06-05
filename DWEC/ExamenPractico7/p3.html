@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UnSplash Image Search</title>
+</head>
+<body>
+<h1>UnSplash Image Search</h1>
+
+<label for="busqueda">Busqueda:</label>
+<input type="text" id="busqueda">
+<br><br>
+
+<label for="numero-imagenes">Numero de imagenes:</label>
+<select id="numero-imagenes">
+  <option value="5">5</option>
+  <option value="10">10</option>
+  <option value="15">15</option>
+  <option value="20">20</option>
+</select>
+<br><br>
+
+<button onclick="buscarImagenes()">Buscar imagenes</button>
+
+<div id="imagenes"></div>
+
+<script>
+  // Buscar imágenes
+  function buscarImagenes() {
+    const busqueda = document.getElementById("busqueda").value;
+    const numeroImagenes = document.getElementById("numero-imagenes").value;
+
+    fetch(`https://api.unsplash.com/search/photos?query=${busqueda}&per_page=${numeroImagenes}&client_id=1tfQM977c52FC7PcVm9teZRYqmLAQGgr-jJonvYCyXQ`)
+            .then(response => response.json())
+            .then(data => {
+              const imagenes = document.getElementById("imagenes");
+              imagenes.innerHTML = "";
+
+              data.results.forEach(imagen => {
+                const img = document.createElement("img");
+                img.src = imagen.urls.thumb;
+                img.alt = imagen.alt_description;
+                img.title = imagen.description;
+                img.addEventListener("click", () => mostrarImagen(imagen));
+                imagenes.appendChild(img);
+              });
+            });
+  }
+
+  // Mostrar imagen
+  function mostrarImagen(imagen) {
+    const urlPequena = imagen.urls.thumb;
+    const urlMediana = imagen.urls.regular;
+    const urlGrande = imagen.urls.full;
+
+    const paginaImagen = window.open("", "_blank");
+    paginaImagen.document.write(`
+          <html>
+            <head>
+              <title>${imagen.description}</title>
+            </head>
+            <body>
+              <h1>${imagen.description}</h1>
+              <img src="${urlMediana}" alt="${imagen.alt_description}">
+              <br><br>
+              <a href="${urlPequena}" target="_blank">Ver imagen pequenha</a> |
+              <a href="${urlMediana}" target="_blank">Ver imagen mediana</a> |
+              <a href="${urlGrande}" target="_blank">Ver imagen grande</a>
+            </body>
+          </html>
+        `);
+  }
+</script>
+</body>
+</html>

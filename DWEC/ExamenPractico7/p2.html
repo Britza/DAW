@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chuck Norris Jokes and OpenWeather</title>
+</head>
+<body>
+<div id="jokes">
+  <h1>Chiste aleatorio</h1>
+  <p id="chiste"></p>
+  <p id="fecha"></p>
+  <p id="categoria"></p>
+
+  <button onclick="generarChiste()">Generar chiste aleatorio</button>
+
+  <div id="estado"></div>
+</div>
+
+<div id="weather">
+  <h1>Informacion del tiempo</h1>
+  <p id="temperatura"></p>
+  <p id="descripcion"></p>
+  <p id="fecha-actualizacion"></p>
+
+  <div id="estado-weather"></div>
+</div>
+
+<script>
+  // Generar chiste aleatorio
+  function generarChiste() {
+    fetch("https://api.chucknorris.io/jokes/random")
+            .then(response => response.json())
+            .then(data => {
+              document.getElementById("chiste").innerHTML = data.value;
+              document.getElementById("fecha").innerHTML = "Actualizado en: " + data.updated_at;
+              document.getElementById("categoria").innerHTML = "Categoria: " + data.categories[0];
+            });
+  }
+
+  // Obtener información del tiempo cada 20 segundos
+  setInterval(() => {
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=Madrid&appid=9f01e9b7d5849b53f44860583c25db3d&units=metric")
+            .then(response => {
+              document.getElementById("estado-weather").innerHTML = `Estado: ${response.status} - ${response.statusText}`;
+              document.getElementById("fecha-actualizacion").innerHTML = `Ultima actualizacion: ${new Date().toLocaleString()}`;
+              return response.json();
+            })
+            .then(data => {
+              document.getElementById("temperatura").innerHTML = `Temperatura: ${data.main.temp}°C`;
+              document.getElementById("descripcion").innerHTML = `Descripcion: ${data.weather[0].description}`;
+            });
+  }, 20000);
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chuck Norris Jokes</title>
+</head>
+<body>
+<h1>Chiste aleatorio</h1>
+<p id="chiste"></p>
+<p id="fecha"></p>
+<p id="categoria"></p>
+
+<h1>Categorias disponibles</h1>
+<select id="categorias" onchange="mostrarChistePorCategoria()">
+    <option value="">Selecciona una categoria</option>
+</select>
+
+<h1>Buscar chiste</h1>
+<form onsubmit="buscarChiste(); return false;">
+    <input type="text" id="busqueda" placeholder="Escribe tu busqueda aqui">
+    <button type="submit">Buscar</button>
+</form>
+
+<script>
+    // Obtener chiste aleatorio
+    fetch("https://api.chucknorris.io/jokes/random")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("chiste").innerHTML = data.value;
+            document.getElementById("fecha").innerHTML = "Actualizado en: " + data.updated_at;
+            document.getElementById("categoria").innerHTML = "Categoria: " + data.categories[0];
+        });
+
+    // Obtener categorías disponibles
+    fetch("https://api.chucknorris.io/jokes/categories")
+        .then(response => response.json())
+        .then(data => {
+            const select = document.getElementById("categorias");
+            data.forEach(category => {
+                const option = document.createElement("option");
+                option.value = category;
+                option.text = category;
+                select.add(option);
+            });
+
+            // Mostrar chiste aleatorio si ya hay una categoría seleccionada
+            const categoriaSeleccionada = select.value;
+            if (categoriaSeleccionada) {
+                fetch(`https://api.chucknorris.io/jokes/random?category=${categoriaSeleccionada}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("chiste").innerHTML = data.value;
+                        document.getElementById("fecha").innerHTML = "Actualizado en: " + data.updated_at;
+                        document.getElementById("categoria").innerHTML = "Categoría: " + categoriaSeleccionada;
+                    });
+            } else {
+                obtenerChisteAleatorio();
+            }
+        });
+
+
+    // Buscar chiste por texto
+    function buscarChiste() {
+        const busqueda = document.getElementById("busqueda").value;
+        fetch(`https://api.chucknorris.io/jokes/search?query=${busqueda}`)
+            .then(response => response.json())
+            .then(data => {
+                const index = Math.floor(Math.random() * data.result.length);
+                const joke = data.result[index];
+                document.getElementById("chiste").innerHTML = joke.value;
+                document.getElementById("fecha").innerHTML = "Actualizado en: " + joke.updated_at;
+                document.getElementById("categoria").innerHTML = "Categoria: " + joke.categories[0];
+            });
+    }
+</script>
+</body>
+</html>
